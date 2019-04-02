@@ -1,0 +1,59 @@
+{
+  "name": "reiwa",
+  "version": "1.0.0",
+  "description": "ちょっとした静的ページを作るときの開発環境",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx gulp",
+    "build": "NODE_ENV=production npx gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/izakikazuho/Reiwa.git"
+  },
+  "author": "izakikazuho",
+  "license": "ISC",
+  "browserslist": [
+    "last 2 version"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.24.7",
+    "browserify": "^16.2.3",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "del": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "gulp": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-prompt": "^1.2.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-svgmin": "^2.0.0",
+    "imagemin-gifsicle": "^5.2.0",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^6.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "node-sass-package-importer": "^5.3.1",
+    "prettier": "^1.16.4",
+    "terser-webpack-plugin": "^1.2.3",
+    "vinyl-paths": "^2.1.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "ress": "^1.2.2"
+  }
+}
