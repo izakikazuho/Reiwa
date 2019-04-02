@@ -140,16 +140,6 @@ gulp.task('optimizeImage', () => {
 });
 
 /* =======================================
-  SVG最適化
-========================================== */
-gulp.task('svgmin', () => {
-  return gulp.src(paths.svg.src)
-      .pipe(defaultPlumber())
-      .pipe(svgmin())
-      .pipe(gulp.dest(paths.svg.dist));
-});
-
-/* =======================================
   サーバー
 ========================================== */
 gulp.task('server', () => {
