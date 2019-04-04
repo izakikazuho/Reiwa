@@ -95,7 +95,7 @@ gulp.task('sass', () => {
     );
   }
 
-  return gulp.src(paths.sass.src, {sourcemaps: true})
+  return gulp.src(paths.sass.src, {sourcemaps: true, since: gulp.lastRun('sass')})
       .pipe(defaultPlumber())
       .pipe(sass({
         importer: packageImporter({
@@ -113,7 +113,7 @@ gulp.task('sass', () => {
   PUGコンパイル
 ========================================== */
 gulp.task('pug', () => {
-  return gulp.src(paths.pug.src)
+  return gulp.src(paths.pug.src, {since: gulp.lastRun('pug')})
       .pipe(pug({
         pretty: '\t',
       }))
@@ -124,7 +124,7 @@ gulp.task('pug', () => {
   画像最適化
 ========================================== */
 gulp.task('optimizeImage', () => {
-  return gulp.src(paths.img.src)
+  return gulp.src(paths.img.src, {since: gulp.lastRun('optimizeImage')})
       .pipe(defaultPlumber())
       .pipe(imagemin([
         imageminPngquant({
@@ -171,8 +171,9 @@ gulp.task('clean', () => {
 ========================================== */
 gulp.task('watch', () => {
   gulp.watch(paths.js.src, gulp.series('js', 'reload'));
-  gulp.watch(paths.sass.src, gulp.series('sass', 'reload'));
+  gulp.watch(paths.sass.src, gulp.series('sass'));
   gulp.watch(paths.pug.src, gulp.series('pug', 'reload'));
+  gulp.watch(paths.img.src, gulp.series('optimizeImage', 'reload'))
   console.log(
       '\n'+
     '-------------------------------------------------\n'+
