@@ -4,25 +4,37 @@ const env = process.env.NODE_ENV || 'development';
 module.exports = {
     cache: true,
     mode: env,
+    entry: {
+        main: './src/js/main.js',
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            use: 'babel-loader',
-            exclude: '/node_modules/',
-        }, ],
+        rules: [
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                },
+                exclude: /node_modules\/(?!(dom7|ssr-window|swiper)\/).*/,
+            },
+        ],
     },
     optimization: {
         minimizer: [
             new TerserPlugin({
                 terserOptions: {
                     compress: {
-                        drop_console: true
+                        drop_console: true,
                     },
                 },
             }),
         ],
+        splitChunks: {
+            name: 'vendor',
+            chunks: 'all',
+        },
+        namedChunks: true,
     },
-}
+};

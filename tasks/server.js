@@ -1,15 +1,14 @@
 import browserSync from 'browser-sync';
-import paths from '../paths'
+import paths from '../paths';
 
 export function startServer() {
-    browserSync({
-      server: {
-        baseDir: paths.dist,
-      },
-      open: false,
-    });
+  browserSync({
+    proxy: 'https://calmatakumi.wp', // Local by Flywheelのドメイン
+    open: false,
+  });
 }
 
-export function reloadBrowser() {
-    return browserSync.reload();
+export function reloadBrowser(done) {
+  browserSync.reload();
+  done();
 }
