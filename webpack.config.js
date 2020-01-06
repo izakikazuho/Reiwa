@@ -1,5 +1,5 @@
-import TerserPlugin from 'terser-webpack-plugin';
-const env = process.env.NODE_ENV || 'development';
+import TerserPlugin from 'terser-webpack-plugin'
+const env = process.env.NODE_ENV || 'development'
 
 module.exports = {
     cache: true,
@@ -37,4 +37,4 @@ module.exports = {
         },
         namedChunks: true,
     },
-};
+}
