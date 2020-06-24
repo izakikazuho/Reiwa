@@ -10,6 +10,8 @@ import browserSync from 'browser-sync'
 import { defaultPlumber } from './plumber'
 import easings from 'postcss-easings'
 
+sass.compiler = require('dart-sass')
+
 const env = process.env.NODE_ENV || 'development'
 const isProduction = env === 'production'
 
