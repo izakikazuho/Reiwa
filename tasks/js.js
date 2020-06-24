@@ -1,13 +1,22 @@
 import { src, dest } from 'gulp'
-import webpackStream from 'webpack-stream'
-import webpack from 'webpack'
 import paths from '../paths'
-import { defaultPlumber } from './plumber'
+import resolve from '@rollup/plugin-node-resolve'
+import babel from '@rollup/plugin-babel'
 
-const webpackConfig = require('../webpack.config')
+const rollup = require('rollup');
 
 export function bundleJS() {
-    return defaultPlumber()
-        .pipe(webpackStream(webpackConfig, webpack))
-        .pipe(dest(paths.js.dist))
+  return rollup.rollup({
+    input: paths.js.entry,
+    plugins: [
+      resolve(),
+      babel({ babelHelpers: 'bundled' })
+    ]
+  }).then(bundle => {
+    bundle.write({
+      file: `${paths.js.dist}/bundle.js`,
+      format: 'iife',
+      sourcemap: true
+    })
+  });
 }

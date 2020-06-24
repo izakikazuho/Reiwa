@@ -5,13 +5,13 @@ import imageminPngquant from 'imagemin-pngquant'
 import imageminGifsicle from 'imagemin-gifsicle'
 import imageminSvgo from 'imagemin-svgo'
 import paths from '../paths'
-import { defaultPlumber } from './plumber'
+import plumber from 'gulp-plumber'
 
 export function optimizeImage() {
     return src(paths.img.src, {
         since: lastRun(optimizeImage),
     })
-        .pipe(defaultPlumber())
+        .pipe(plumber())
         .pipe(
             imagemin([
                 imageminPngquant({
