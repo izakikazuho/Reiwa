@@ -1,8 +1,10 @@
-import plumber from 'gulp-plumber'
-import notify from 'gulp-notify'
+const plumber = require('gulp-plumber')
+const notify = require('gulp-notify')
 
-export function defaultPlumber() {
+const defaultPlumber = function() {
     return plumber({
         errorHandler: notify.onError('Error: <%= error.message %>'),
     })
 }
+
+exports.defaultPlumber = defaultPlumber

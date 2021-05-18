@@ -1,11 +1,12 @@
-import TerserPlugin from 'terser-webpack-plugin'
+const paths = require("./paths")
+const TerserPlugin = require('terser-webpack-plugin')
 const env = process.env.NODE_ENV || 'development'
 
 module.exports = {
     cache: true,
     mode: env,
     entry: {
-        main: './src/js/main.js',
+        main: paths.js.entry,
     },
     output: {
         filename: '[name].bundle.js',
@@ -35,6 +36,5 @@ module.exports = {
             name: 'vendor',
             chunks: 'all',
         },
-        namedChunks: true,
     },
 }

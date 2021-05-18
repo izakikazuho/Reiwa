@@ -4,39 +4,26 @@
 // 開発用ディレクトリ
 const src = './src'
 // はき出し先ディレクトリ
-const dist = './public_html'
+const dist = './dist'
 
 module.exports = {
     src: src,
     dist: dist,
-
-    html: {
-        src: [`${src}/**/*.html`, `!${src}/node_modules/**/*`],
-        dist: `${dist}`,
-    },
-    pug: {
-        src: [`${src}/pug/**/*.pug`, `!${src}/pug/**/_*.pug`],
-        dist: `${dist}/`,
-    },
-    fonts: {
-        src: `${src}/fonts/**/*`,
-        dist: `${dist}/fonts`,
+    template: {
+        src: `${src}/site`,
+        dist: `${dist}`
     },
     js: {
         entry: `${src}/js/main.js`,
-        src: `${src}/js/**/*.js`,
-        dist: `${dist}/js`,
+        src: `${src}/assets/js/**/*.js`,
+        dist: `${dist}/assets/js`,
     },
     img: {
-        src: `${src}/images/**/*.+(jpg|jpeg|png|gif|ico|svg)`,
-        dist: `${dist}/images`,
-    },
-    data: {
-        src: `${src}/dl/**/*`,
-        dist: `${dist}/dl`,
+        src: `${src}/assets/images/**/*.+(jpg|jpeg|png|gif|ico|svg)`,
+        dist: `${dist}/assets/images`,
     },
     sass: {
-        src: `${src}/scss/**/*.scss`,
-        dist: `${dist}/css`,
+        src: `${src}/assets/scss/**/*.scss`,
+        dist: `${dist}/assets/css`,
     },
 }

@@ -1,16 +1,21 @@
-import browserSync from 'browser-sync'
-import paths from '../paths'
+const browserSync = require('browser-sync')
+const paths = require('../paths')
 
-export function startServer() {
+const startServer = function(done) {
     browserSync({
         server: {
             baseDir: paths.dist,
         },
         open: false,
     })
+    done()
 }
 
-export function reloadBrowser(done) {
+const reloadBrowser = function(done) {
     browserSync.reload()
     done()
 }
+
+exports.startServer = startServer
+exports.reloadBrowser = reloadBrowser
+

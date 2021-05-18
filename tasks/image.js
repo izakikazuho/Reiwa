@@ -1,28 +1,26 @@
-import { src, dest, lastRun } from 'gulp'
-import imagemin from 'gulp-imagemin'
-import imageminMozjpeg from 'imagemin-mozjpeg'
-import imageminPngquant from 'imagemin-pngquant'
-import imageminGifsicle from 'imagemin-gifsicle'
-import imageminSvgo from 'imagemin-svgo'
-import paths from '../paths'
-import { defaultPlumber } from './plumber'
+const { src, dest, lastRun } = require('gulp')
+const imagemin = require('gulp-imagemin')
+const paths = require('../paths')
+const { defaultPlumber } = require('./plumber')
 
-export function optimizeImage() {
+const optimizeImage = function () {
     return src(paths.img.src, {
         since: lastRun(optimizeImage),
     })
         .pipe(defaultPlumber())
         .pipe(
             imagemin([
-                imageminPngquant({
-                    quality: '65-75',
+                imagemin.optipng({
+                    quality: '80',
                 }),
-                imageminMozjpeg({
-                    quality: 75,
+                imagemin.mozjpeg({
+                    quality: 80,
                 }),
-                imageminGifsicle(),
-                imageminSvgo(),
+                imagemin.gifsicle(),
+                imagemin.svgo(),
             ])
         )
         .pipe(dest(paths.img.dist))
 }
+
+exports.optimizeImage = optimizeImage

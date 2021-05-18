@@ -1,0 +1,54 @@
+<html>
+<head>
+  <script src="https://kit.fontawesome.com/8512975858.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gray-200">
+<div class="max-w-screen-lg mx-auto">
+<div class="px-6">
+<div class="pt-4 mb-8">
+<h1 class="text-4xl font-semibold">
+  {{ project.title }}
+</h1>
+<p class="text-sm mb-2">Author: {{ project.author }}</p>
+<div class="flex items-center">
+  <a class="inline-block text-2xl" href="{{ project.github }}"><i class="fab fa-github"></i></a>
+</div>
+
+</div>
+
+<table class="table-fixed w-full rounded-xl overflow-hidden shadow-xl">
+  <thead class="bg-gray-700 text-white">
+    <tr class="shadow-md">
+      <th class="w-1/12 border p-1">#</th>
+      <th class="w-6/12 border p-1">Title</th>
+      <th class="w-2/12 border p-1">Status</th>
+      <th class="w-3/12 border p-1">Last Modified</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white">
+    {%- for page in collections.page -%}
+      <tr class="{% if page.data.work_status === 'waiting' %}opacity-30{% endif %}">
+        <td class="text-center border p-2">{{ page.data.template_num }}</td>
+        <td class="border p-2">
+          {%- if page.data.work_status !== 'waiting'  -%}
+          <a href="{{ page.url }}" target="_blank">{{ page.data.title }}<i class="fas fa-external-link-alt ml-1"></i></a>
+          {%- else -%}
+          <span>{{ page.data.title }}</span>
+          {%- endif  -%}
+        </td>
+        <td class="text-center border p-2">
+          {{ page.data.work_status }}
+        </td>
+        <td class="text-center border p-2">
+          {{ page.date.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }) }}
+        </td>
+      </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
+
+
+</div>
+</html>

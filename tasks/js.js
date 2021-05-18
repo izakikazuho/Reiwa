@@ -1,13 +1,14 @@
-import { src, dest } from 'gulp'
-import webpackStream from 'webpack-stream'
-import webpack from 'webpack'
-import paths from '../paths'
-import { defaultPlumber } from './plumber'
+const { src, dest } = require('gulp')
+const webpackStream = require('webpack-stream')
+const webpack = require('webpack')
+const paths = require('../paths')
 
 const webpackConfig = require('../webpack.config')
 
-export function bundleJS() {
-    return defaultPlumber()
+const bundleJS = function() {
+    return src(paths.js.src)
         .pipe(webpackStream(webpackConfig, webpack))
         .pipe(dest(paths.js.dist))
 }
+
+exports.bundleJS = bundleJS

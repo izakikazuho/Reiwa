@@ -1,61 +1,47 @@
 {
-  "name": "reiwa",
-  "version": "1.0.0",
-  "description": "ちょっとした静的ページを作るときの開発環境",
-  "main": "main.js",
+  "name": "reiwa11",
+  "version": "2.0.0",
+  "description": "A static site boilerplate using eleventy, gulp and Webpack5.",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx gulp start",
-    "build": "NODE_ENV=production npx gulp build"
+    "start": "run-p start:*",
+    "start:eleventy": "npx eleventy --watch",
+    "start:gulp": "npx gulp start",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/izakikazuho/Reiwa.git"
+    "url": "git+https://github.com/izakikazuho/Reiwa.git"
   },
   "author": "izakikazuho",
-  "license": "ISC",
-  "browserslist": [
-    "last 2 version"
-  ],
-  "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@babel/register": "^7.7.4",
-    "autoprefixer": "^9.5.0",
-    "babel-loader": "^8.0.6",
-    "browser-sync": "^2.24.7",
-    "css-mqpacker": "^7.0.0",
-    "cssnano": "^4.1.10",
-    "del": "^4.1.0",
-    "eslint": "^5.16.0",
-    "eslint-config-google": "^0.12.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "gulp": "^4.0.0",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-notify": "^3.2.0",
-    "gulp-plumber": "^1.2.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-prompt": "^1.2.0",
-    "gulp-pug": "^4.0.1",
-    "gulp-sass": "^4.0.2",
-    "gulp-svgmin": "^2.0.0",
-    "imagemin-gifsicle": "^5.2.0",
-    "imagemin-mozjpeg": "^7.0.0",
-    "imagemin-pngquant": "^6.0.0",
-    "imagemin-svgo": "^7.0.0",
-    "node-sass-package-importer": "^5.3.1",
-    "postcss-easings": "^2.0.0",
-    "prettier": "^1.16.4",
-    "pug-php-filter": "^0.0.1",
-    "terser-webpack-plugin": "^1.2.3",
-    "vinyl-paths": "^2.1.0",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
-    "webpack-stream": "^5.2.1"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/izakikazuho/Reiwa/issues"
   },
-  "dependencies": {
-    "ress": "^1.2.2"
+  "homepage": "https://github.com/izakikazuho/Reiwa#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/register": "^7.13.16",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.26.14",
+    "cssnano": "^5.0.2",
+    "fontagon": "^1.0.10",
+    "gulp": "^4.0.2",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-prompt": "^1.2.0",
+    "node-sass-package-importer": "^5.3.2",
+    "npm-run-all": "^4.1.5",
+    "terser-webpack-plugin": "^5.1.2",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-stream": "^6.1.2"
   }
 }
